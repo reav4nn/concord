@@ -1,5 +1,5 @@
 """Concord - Streamlit demo. Run: streamlit run app.py"""
-import json, tempfile
+import json, re, tempfile
 from pathlib import Path
 import streamlit as st
 from concord.schema import DOC_TYPES, DOC_LABELS
@@ -11,27 +11,42 @@ st.set_page_config(page_title="Concord", page_icon=str(ROOT / "assets" / "favico
 CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
-html, body, [class*="css"], .stApp { font-family: 'IBM Plex Sans', system-ui, sans-serif; }
-.stApp { background: #EEF2F9; color: #0E1B3D; }
-.cc-head { background:#0E1B3D; margin:-1rem -1rem 1.5rem; padding:14px 32px; display:flex; align-items:center; gap:12px; }
-.cc-head span { color:#A9B6D3; font-size:14px; }
+html, body, .stApp, .stMarkdown, button, input, label { font-family: 'IBM Plex Sans', system-ui, sans-serif !important; }
+.stApp { background:#EEF2F9; color:#0E1B3D; }
+header[data-testid="stHeader"] { background:transparent; height:0; }
+.block-container { padding-top:1.5rem; max-width:1360px; }
+.cc-head { background:#0E1B3D; border-radius:10px; padding:14px 24px; margin-bottom:8px;
+           display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.cc-head svg { height:34px; width:auto; display:block; }
+.cc-head span { color:#A9B6D3; font-size:15px; }
+h2, h3 { color:#0E1B3D !important; letter-spacing:-0.01em; }
+[data-testid="stWidgetLabel"] p { color:#0E1B3D !important; font-weight:600; font-size:15px; }
+[data-testid="stFileUploaderDropzone"] { background:#F7F9FC; border:1.5px dashed #A7B2C6; border-radius:10px; }
+[data-testid="stFileUploaderDropzone"] small, [data-testid="stFileUploaderDropzone"] span { color:#4A5670; }
+.stTabs [data-baseweb="tab"] p { font-size:15px; font-weight:600; color:#4A5670; }
+.stTabs [aria-selected="true"] p { color:#0E1B3D; }
+.stButton button { height:44px; padding:0 20px; border-radius:6px; font-weight:600; }
+.stButton button[kind="primary"] { background:#1F45C9; border:0; color:#fff; }
+.stButton button[kind="primary"]:hover { background:#18379F; }
+.stButton button[kind="secondary"] { background:#FFFFFF; border:1px solid #A7B2C6; color:#0E1B3D; }
+.stButton button:disabled { background:#C9D3E6 !important; color:#4A5670 !important; }
 .cc-count { font-family:'IBM Plex Mono',monospace; font-size:32px; font-weight:500; line-height:1.1; }
 .cc-badge { font-size:12px; font-weight:600; padding:2px 8px; border-radius:4px; }
 .error { background:#FBE3D2; color:#9A3412; } .warn { background:#FCEFC7; color:#7A5200; } .ok { background:#E2F0E8; color:#1E6B4A; }
 .cc-table { width:100%; border-collapse:collapse; background:#fff; border:1px solid #D5DCE8; border-radius:8px; }
 .cc-table th { text-align:left; font-weight:400; color:#4A5670; font-size:13px; background:#F2F5FA; padding:8px 12px; }
-.cc-table td { padding:10px 12px; border-top:1px solid #E6EAF2; }
+.cc-table td { padding:10px 12px; border-top:1px solid #E6EAF2; color:#0E1B3D; }
 .cc-val { font-family:'IBM Plex Mono',monospace; padding:2px 6px; border-radius:4px; }
 .cc-val.bad { background:#FBE3D2; color:#9A3412; }
 .cc-meta { color:#4A5670; font-size:13px; }
-.stButton button[kind="primary"] { background:#1F45C9; border:0; }
-.stButton button[kind="primary"]:hover { background:#18379F; }
 </style>
 """
 st.markdown(CSS, unsafe_allow_html=True)
-logo = (ROOT / "assets" / "concord-lockup-dark.svg").read_text()
-st.markdown(f'<div class="cc-head"><div style="height:36px">{logo.replace("<svg", "<svg height=36", 1)}</div>'
-            f'<span>Yük sənədlərinin avtomatik tutuşdurulması</span></div>', unsafe_allow_html=True)
+_mark = (ROOT / "assets" / "concord-lockup-dark.svg").read_text()
+_mark = re.sub(r'<rect[^>]*/>', '', _mark, count=1)          # drop the navy backdrop rect
+_mark = re.sub(r'\s(width|height)="[^"]*"', '', _mark.split('>', 1)[0]) + '>' + _mark.split('>', 1)[1]
+st.markdown(f'<div class="cc-head">{_mark}<span>Yük sənədlərinin avtomatik tutuşdurulması</span></div>',
+            unsafe_allow_html=True)
 
 LABEL = {"error": "Xəta", "warn": "Yoxlanmalı", "ok": "Uyğun"}
 
@@ -63,7 +78,7 @@ with tab_up:
         with c:
             up = st.file_uploader(DOC_LABELS[t], type=["pdf", "png", "jpg", "jpeg"], key=t)
             if up: files[t] = up
-    b1, b2, _ = st.columns([1, 1, 4])
+    b1, b2, _ = st.columns([1, 1.6, 9], gap="small")
     if b1.button("Yoxla", type="primary", disabled=len(files) < 2):
         try:
             st.session_state.result = run_pipeline(files)
