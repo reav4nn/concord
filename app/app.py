@@ -53,8 +53,21 @@ st.markdown(CSS, unsafe_allow_html=True)
 _mark = (ROOT / "assets" / "concord-lockup-dark.svg").read_text()
 _mark = re.sub(r'<rect[^>]*/>', '', _mark, count=1)          # drop the navy backdrop rect
 _mark = re.sub(r'\s(width|height)="[^"]*"', '', _mark.split('>', 1)[0]) + '>' + _mark.split('>', 1)[1]
-qp = st.query_params.get("lang", "az")
-L = st.session_state.get("lang_pick") or (qp if qp in LANGS else "az")
+if "lang" not in st.session_state:
+    qp = st.query_params.get("lang", "az")
+    st.session_state.lang = qp if qp in LANGS else "az"
+if st.session_state.get("lang_pick") is None:          # first run, or the pick was cleared
+    st.session_state.lang_pick = st.session_state.lang
+L = st.session_state.lang
+st.query_params["lang"] = L                            # keeps the language on reload and in shared links
+
+
+def _on_lang():
+    v = st.session_state.lang_pick
+    if v is None:                                      # clicking the active option must not clear it
+        st.session_state.lang_pick = st.session_state.lang
+    else:
+        st.session_state.lang = v
 st.markdown(f'<div class="cc-head">{_mark}<span>{t("tagline", L)}</span></div>', unsafe_allow_html=True)
 
 
@@ -147,5 +160,5 @@ with tab_res:
 
 _, foot = st.columns([12, 2])
 with foot:
-    st.segmented_control("Language", list(LANGS), format_func=lambda k: LANGS[k], default=L,
-                         key="lang_pick", label_visibility="collapsed")
+    st.segmented_control("Language", list(LANGS), format_func=lambda k: LANGS[k],
+                         key="lang_pick", on_change=_on_lang, label_visibility="collapsed")
