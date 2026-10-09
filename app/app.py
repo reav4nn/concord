@@ -40,6 +40,12 @@ h2, h3 { color:#0E1B3D !important; letter-spacing:-0.01em; }
 .cc-val { font-family:'IBM Plex Mono',monospace; padding:2px 6px; border-radius:4px; }
 .cc-val.bad { background:#FBE3D2; color:#9A3412; }
 .cc-meta { color:#4A5670; font-size:13px; }
+.cc-foot { margin-top:48px; border-top:1px solid #D5DCE8; }
+[data-testid="stButtonGroup"] { justify-content:flex-end; }
+[data-testid="stButtonGroup"] button { min-height:26px; height:26px; padding:0 9px; font-size:12px;
+  background:transparent; border-color:#D5DCE8; color:#4A5670; }
+[data-testid="stButtonGroup"] button[aria-checked="true"], [data-testid="stButtonGroup"] button[kind*="Active"] {
+  color:#0E1B3D; background:#FFFFFF; }
 </style>
 """
 st.markdown(CSS, unsafe_allow_html=True)
@@ -47,19 +53,8 @@ _mark = (ROOT / "assets" / "concord-lockup-dark.svg").read_text()
 _mark = re.sub(r'<rect[^>]*/>', '', _mark, count=1)          # drop the navy backdrop rect
 _mark = re.sub(r'\s(width|height)="[^"]*"', '', _mark.split('>', 1)[0]) + '>' + _mark.split('>', 1)[1]
 qp = st.query_params.get("lang", "az")
-if "lang" not in st.session_state:
-    st.session_state.lang = qp if qp in LANGS else "az"
-head_l, head_r = st.columns([10, 2], vertical_alignment="center")
-with head_r:
-    choice = st.segmented_control("Language", list(LANGS), format_func=lambda k: LANGS[k],
-                                  default=st.session_state.lang, key="lang_pick", label_visibility="collapsed")
-    if choice and choice != st.session_state.lang:
-        st.session_state.lang = choice
-        st.query_params["lang"] = choice
-        st.rerun()
-L = st.session_state.lang
-with head_l:
-    st.markdown(f'<div class="cc-head">{_mark}<span>{t("tagline", L)}</span></div>', unsafe_allow_html=True)
+L = st.session_state.get("lang_pick") or (qp if qp in LANGS else "az")
+st.markdown(f'<div class="cc-head">{_mark}<span>{t("tagline", L)}</span></div>', unsafe_allow_html=True)
 
 
 def unit_en(v):
@@ -148,3 +143,9 @@ with tab_res:
             st.caption(t("letter_note", L))
         with d_tab:
             st.json(res.get("docs", []))
+
+st.markdown('<div class="cc-foot"></div>', unsafe_allow_html=True)
+_, foot = st.columns([12, 2])
+with foot:
+    st.segmented_control("Language", list(LANGS), format_func=lambda k: LANGS[k], default=L,
+                         key="lang_pick", label_visibility="collapsed")
