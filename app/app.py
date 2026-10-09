@@ -26,7 +26,7 @@ h2, h3 { color:#0E1B3D !important; letter-spacing:-0.01em; }
 [data-testid="stFileUploaderDropzone"] small, [data-testid="stFileUploaderDropzone"] span { color:#4A5670; }
 .stTabs [data-baseweb="tab"] p { font-size:15px; font-weight:600; color:#4A5670; }
 .stTabs [aria-selected="true"] p { color:#0E1B3D; }
-.stButton button { height:44px; padding:0 20px; border-radius:6px; font-weight:600; }
+.stButton button { height:44px; padding:0 20px; border-radius:6px; font-weight:600; white-space:nowrap; width:auto; min-width:max-content; }
 .stButton button[kind="primary"] { background:#1F45C9; border:0; color:#fff; }
 .stButton button[kind="primary"]:hover { background:#18379F; }
 .stButton button[kind="secondary"] { background:#FFFFFF; border:1px solid #A7B2C6; color:#0E1B3D; }
@@ -106,7 +106,7 @@ with tab_up:
         with c:
             up = st.file_uploader(doc_label(k, L), type=["pdf", "png", "jpg", "jpeg"], key=k)
             if up: files[k] = up
-    b1, b2, _ = st.columns([1, 1.6, 9], gap="small")
+    b1, b2, _ = st.columns([1.3, 2.2, 8], gap="small")
     if b1.button(t("check", L), type="primary", disabled=len(files) < 2):
         try:
             st.session_state.result = run_pipeline(files)
