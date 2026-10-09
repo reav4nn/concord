@@ -1,0 +1,185 @@
+{
+ "labels": [
+  {
+   "type": "weight_mismatch",
+   "doc": "invoice"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": "1082398815",
+   "invoice_no": "TL-2026-8640",
+   "awb_no": "771-2941 9996",
+   "currency": "USD",
+   "gross_weight_kg": 1015.5,
+   "net_weight_kg": 851.3,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Qafqaz Kargo MMC",
+   "items": [
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 800,
+     "unit_price": 11.54,
+     "amount": 9232.0
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 600,
+     "unit_price": 1.35,
+     "amount": 810.0
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 400,
+     "unit_price": 6.1,
+     "amount": 2440.0
+    },
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 200,
+     "unit_price": 1.63,
+     "amount": 326.0
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 300,
+     "unit_price": 9.15,
+     "amount": 2745.0
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 1200,
+     "unit_price": 5.45,
+     "amount": 6540.0
+    }
+   ],
+   "total_amount": 22093.0
+  },
+  "packing_list": {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": "1082398815",
+   "invoice_no": "TL-2026-8640",
+   "awb_no": "771-2941 9996",
+   "currency": "USD",
+   "gross_weight_kg": 989.9,
+   "net_weight_kg": 851.3,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Гафгаз Карго»",
+   "items": [
+    {
+     "description": "Bluetooth speakers",
+     "qty": 800
+    },
+    {
+     "description": "USB-C cables",
+     "qty": 600
+    },
+    {
+     "description": "Wireless earphones",
+     "qty": 400
+    },
+    {
+     "description": "Smartphone cases",
+     "qty": 200
+    },
+    {
+     "description": "LED desk lamps",
+     "qty": 300
+    },
+    {
+     "description": "Laptop bags",
+     "qty": 1200
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": "1082398815",
+   "invoice_no": "TL-2026-8640",
+   "awb_no": "771-2941 9996",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Qafqaz Kargo MMC",
+   "items": [
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 800
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 600
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 400
+    },
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 200
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 300
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 1200
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-8640",
+   "awb_no": "771-2941 9996",
+   "currency": "USD",
+   "gross_weight_kg": 989.9,
+   "net_weight_kg": null,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "GAFGAZ CARGO LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

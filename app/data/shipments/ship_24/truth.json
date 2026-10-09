@@ -1,0 +1,169 @@
+{
+ "labels": [
+  {
+   "type": "hs_mismatch",
+   "doc": "certificate_of_origin"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1129825425",
+   "invoice_no": "TL-2026-5679",
+   "awb_no": "771-3439 5084",
+   "currency": "USD",
+   "gross_weight_kg": 328.9,
+   "net_weight_kg": 282.9,
+   "packages": 15,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Bakı Ticarət Evi MMC",
+   "items": [
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 500,
+     "unit_price": 11.7,
+     "amount": 5850.0
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 600,
+     "unit_price": 0.9,
+     "amount": 540.0
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 300,
+     "unit_price": 12.93,
+     "amount": 3879.0
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 300,
+     "unit_price": 8.8,
+     "amount": 2640.0
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 1000,
+     "unit_price": 7.78,
+     "amount": 7780.0
+    }
+   ],
+   "total_amount": 20689.0
+  },
+  "packing_list": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1129825425",
+   "invoice_no": "TL-2026-5679",
+   "awb_no": "771-3439 5084",
+   "currency": "USD",
+   "gross_weight_kg": 328.9,
+   "net_weight_kg": 282.9,
+   "packages": 15,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Бакинский Торговый Дом»",
+   "items": [
+    {
+     "description": "Wireless earphones",
+     "qty": 500
+    },
+    {
+     "description": "USB-C cables",
+     "qty": 600
+    },
+    {
+     "description": "Bluetooth speakers",
+     "qty": 300
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "qty": 300
+    },
+    {
+     "description": "Laptop bags",
+     "qty": 1000
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1129825425",
+   "invoice_no": "TL-2026-5679",
+   "awb_no": "771-3439 5084",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 15,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Bakı Ticarət Evi MMC",
+   "items": [
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 500
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 600
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "392690",
+     "qty": 300
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 300
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 1000
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-5679",
+   "awb_no": "771-3439 5084",
+   "currency": "USD",
+   "gross_weight_kg": 328.9,
+   "net_weight_kg": null,
+   "packages": 15,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "BAKU TRADE HOUSE LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

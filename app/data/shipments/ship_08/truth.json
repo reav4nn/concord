@@ -1,0 +1,153 @@
+{
+ "labels": [
+  {
+   "type": "package_mismatch",
+   "doc": "awb"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1828862021",
+   "invoice_no": "TL-2026-1457",
+   "awb_no": "771-5577 8737",
+   "currency": "USD",
+   "gross_weight_kg": 988.0,
+   "net_weight_kg": 849.7,
+   "packages": 43,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Bakı Ticarət Evi MMC",
+   "items": [
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 500,
+     "unit_price": 8.68,
+     "amount": 4340.0
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 500,
+     "unit_price": 8.03,
+     "amount": 4015.0
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 1000,
+     "unit_price": 16.4,
+     "amount": 16400.0
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 500,
+     "unit_price": 0.84,
+     "amount": 420.0
+    }
+   ],
+   "total_amount": 25175.0
+  },
+  "packing_list": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1828862021",
+   "invoice_no": "TL-2026-1457",
+   "awb_no": "771-5577 8737",
+   "currency": "USD",
+   "gross_weight_kg": 988.0,
+   "net_weight_kg": 849.7,
+   "packages": 43,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Бакинский Торговый Дом»",
+   "items": [
+    {
+     "description": "LED desk lamps",
+     "qty": 500
+    },
+    {
+     "description": "Laptop bags",
+     "qty": 500
+    },
+    {
+     "description": "Bluetooth speakers",
+     "qty": 1000
+    },
+    {
+     "description": "USB-C cables",
+     "qty": 500
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1828862021",
+   "invoice_no": "TL-2026-1457",
+   "awb_no": "771-5577 8737",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 43,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Bakı Ticarət Evi MMC",
+   "items": [
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 500
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 500
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 1000
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 500
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-1457",
+   "awb_no": "771-5577 8737",
+   "currency": "USD",
+   "gross_weight_kg": 988.0,
+   "net_weight_kg": null,
+   "packages": 44,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "BAKU TRADE HOUSE LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

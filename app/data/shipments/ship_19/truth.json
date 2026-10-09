@@ -1,0 +1,169 @@
+{
+ "labels": [
+  {
+   "type": "hs_mismatch",
+   "doc": "certificate_of_origin"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1003889856",
+   "invoice_no": "TL-2026-2488",
+   "awb_no": "771-5328 2470",
+   "currency": "USD",
+   "gross_weight_kg": 515.4,
+   "net_weight_kg": 443.2,
+   "packages": 24,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Qafqaz Kargo MMC",
+   "items": [
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 200,
+     "unit_price": 1.76,
+     "amount": 352.0
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 600,
+     "unit_price": 5.09,
+     "amount": 3054.0
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 400,
+     "unit_price": 5.01,
+     "amount": 2004.0
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 1000,
+     "unit_price": 9.84,
+     "amount": 9840.0
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 600,
+     "unit_price": 10.02,
+     "amount": 6012.0
+    }
+   ],
+   "total_amount": 21262.0
+  },
+  "packing_list": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1003889856",
+   "invoice_no": "TL-2026-2488",
+   "awb_no": "771-5328 2470",
+   "currency": "USD",
+   "gross_weight_kg": 515.4,
+   "net_weight_kg": 443.2,
+   "packages": 24,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Гафгаз Карго»",
+   "items": [
+    {
+     "description": "USB-C cables",
+     "qty": 200
+    },
+    {
+     "description": "Laptop bags",
+     "qty": 600
+    },
+    {
+     "description": "LED desk lamps",
+     "qty": 400
+    },
+    {
+     "description": "Bluetooth speakers",
+     "qty": 1000
+    },
+    {
+     "description": "Wireless earphones",
+     "qty": 600
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1003889856",
+   "invoice_no": "TL-2026-2488",
+   "awb_no": "771-5328 2470",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 24,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Qafqaz Kargo MMC",
+   "items": [
+    {
+     "description": "USB-C cables",
+     "hs_code": "940520",
+     "qty": 200
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 600
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 400
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 1000
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 600
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-2488",
+   "awb_no": "771-5328 2470",
+   "currency": "USD",
+   "gross_weight_kg": 515.4,
+   "net_weight_kg": null,
+   "packages": 24,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "GAFGAZ CARGO LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

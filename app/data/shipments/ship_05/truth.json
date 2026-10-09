@@ -1,0 +1,148 @@
+{
+ "labels": [],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1189212348",
+   "invoice_no": "TL-2026-8481",
+   "awb_no": "771-7428 7521",
+   "currency": "USD",
+   "gross_weight_kg": 1003.0,
+   "net_weight_kg": 862.6,
+   "packages": 32,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Kür Elektronika MMC",
+   "items": [
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 1200,
+     "unit_price": 2.21,
+     "amount": 2652.0
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 400,
+     "unit_price": 11.63,
+     "amount": 4652.0
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 200,
+     "unit_price": 4.73,
+     "amount": 946.0
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 800,
+     "unit_price": 10.88,
+     "amount": 8704.0
+    }
+   ],
+   "total_amount": 16954.0
+  },
+  "packing_list": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1189212348",
+   "invoice_no": "TL-2026-8481",
+   "awb_no": "771-7428 7521",
+   "currency": "USD",
+   "gross_weight_kg": 1003.0,
+   "net_weight_kg": 862.6,
+   "packages": 32,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Кюр Электроника»",
+   "items": [
+    {
+     "description": "Smartphone cases",
+     "qty": 1200
+    },
+    {
+     "description": "Bluetooth speakers",
+     "qty": 400
+    },
+    {
+     "description": "Laptop bags",
+     "qty": 200
+    },
+    {
+     "description": "Wireless earphones",
+     "qty": 800
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1189212348",
+   "invoice_no": "TL-2026-8481",
+   "awb_no": "771-7428 7521",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 32,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Kür Elektronika MMC",
+   "items": [
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 1200
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 400
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 200
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 800
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-8481",
+   "awb_no": "771-7428 7521",
+   "currency": "USD",
+   "gross_weight_kg": 1003.0,
+   "net_weight_kg": null,
+   "packages": 32,
+   "origin_country": "China",
+   "route": [
+    "Şençjen (SZX)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "KUR ELEKTRONIKA LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

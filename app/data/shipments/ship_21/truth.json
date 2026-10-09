@@ -1,0 +1,173 @@
+{
+ "labels": [
+  {
+   "type": "total_mismatch",
+   "doc": "invoice"
+  },
+  {
+   "type": "package_mismatch",
+   "doc": "awb"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": "1684102263",
+   "invoice_no": "TL-2026-5131",
+   "awb_no": "771-2219 5350",
+   "currency": "USD",
+   "gross_weight_kg": 455.0,
+   "net_weight_kg": 391.3,
+   "packages": 16,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Xəzər Texnika MMC",
+   "items": [
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 200,
+     "unit_price": 11.01,
+     "amount": 2202.0
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 500,
+     "unit_price": 9.45,
+     "amount": 4725.0
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 200,
+     "unit_price": 13.57,
+     "amount": 2714.0
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 300,
+     "unit_price": 7.74,
+     "amount": 2322.0
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 300,
+     "unit_price": 1.39,
+     "amount": 417.0
+    }
+   ],
+   "total_amount": 12430.0
+  },
+  "packing_list": {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": "1684102263",
+   "invoice_no": "TL-2026-5131",
+   "awb_no": "771-2219 5350",
+   "currency": "USD",
+   "gross_weight_kg": 455.0,
+   "net_weight_kg": 391.3,
+   "packages": 16,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Хазар Техника»",
+   "items": [
+    {
+     "description": "Wireless earphones",
+     "qty": 200
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "qty": 500
+    },
+    {
+     "description": "Bluetooth speakers",
+     "qty": 200
+    },
+    {
+     "description": "Laptop bags",
+     "qty": 300
+    },
+    {
+     "description": "USB-C cables",
+     "qty": 300
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": "1684102263",
+   "invoice_no": "TL-2026-5131",
+   "awb_no": "771-2219 5350",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 16,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Xəzər Texnika MMC",
+   "items": [
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 200
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 500
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 200
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 300
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 300
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-5131",
+   "awb_no": "771-2219 5350",
+   "currency": "USD",
+   "gross_weight_kg": 455.0,
+   "net_weight_kg": null,
+   "packages": 19,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "KHAZAR TEKHNIKA LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

@@ -1,0 +1,189 @@
+{
+ "labels": [
+  {
+   "type": "weight_mismatch",
+   "doc": "invoice"
+  },
+  {
+   "type": "package_mismatch",
+   "doc": "awb"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1783235912",
+   "invoice_no": "TL-2026-2533",
+   "awb_no": "771-5422 8767",
+   "currency": "USD",
+   "gross_weight_kg": 1476.3,
+   "net_weight_kg": 1228.7,
+   "packages": 49,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Bakı Ticarət Evi MMC",
+   "items": [
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 400,
+     "unit_price": 1.51,
+     "amount": 604.0
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 400,
+     "unit_price": 10.6,
+     "amount": 4240.0
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 1000,
+     "unit_price": 6.31,
+     "amount": 6310.0
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 300,
+     "unit_price": 16.65,
+     "amount": 4995.0
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 800,
+     "unit_price": 5.7,
+     "amount": 4560.0
+    },
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 800,
+     "unit_price": 1.81,
+     "amount": 1448.0
+    }
+   ],
+   "total_amount": 22157.0
+  },
+  "packing_list": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1783235912",
+   "invoice_no": "TL-2026-2533",
+   "awb_no": "771-5422 8767",
+   "currency": "USD",
+   "gross_weight_kg": 1428.7,
+   "net_weight_kg": 1228.7,
+   "packages": 49,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Бакинский Торговый Дом»",
+   "items": [
+    {
+     "description": "USB-C cables",
+     "qty": 400
+    },
+    {
+     "description": "LED desk lamps",
+     "qty": 400
+    },
+    {
+     "description": "Wireless earphones",
+     "qty": 1000
+    },
+    {
+     "description": "Bluetooth speakers",
+     "qty": 300
+    },
+    {
+     "description": "Laptop bags",
+     "qty": 800
+    },
+    {
+     "description": "Smartphone cases",
+     "qty": 800
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1783235912",
+   "invoice_no": "TL-2026-2533",
+   "awb_no": "771-5422 8767",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 49,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Bakı Ticarət Evi MMC",
+   "items": [
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 400
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 400
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 1000
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 300
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 800
+    },
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 800
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-2533",
+   "awb_no": "771-5422 8767",
+   "currency": "USD",
+   "gross_weight_kg": 1428.7,
+   "net_weight_kg": null,
+   "packages": 52,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "BAKU TRADE HOUSE LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

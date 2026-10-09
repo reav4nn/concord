@@ -1,0 +1,185 @@
+{
+ "labels": [
+  {
+   "type": "tax_id_mismatch",
+   "doc": "packing_list"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1950189441",
+   "invoice_no": "TL-2026-2848",
+   "awb_no": "771-4744 2716",
+   "currency": "USD",
+   "gross_weight_kg": 1203.1,
+   "net_weight_kg": 1034.7,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Qafqaz Kargo MMC",
+   "items": [
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 1000,
+     "unit_price": 1.38,
+     "amount": 1380.0
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 500,
+     "unit_price": 12.57,
+     "amount": 6285.0
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 300,
+     "unit_price": 7.61,
+     "amount": 2283.0
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 200,
+     "unit_price": 7.03,
+     "amount": 1406.0
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 1200,
+     "unit_price": 1.13,
+     "amount": 1356.0
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 200,
+     "unit_price": 8.92,
+     "amount": 1784.0
+    }
+   ],
+   "total_amount": 14494.0
+  },
+  "packing_list": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1951089441",
+   "invoice_no": "TL-2026-2848",
+   "awb_no": "771-4744 2716",
+   "currency": "USD",
+   "gross_weight_kg": 1203.1,
+   "net_weight_kg": 1034.7,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Гафгаз Карго»",
+   "items": [
+    {
+     "description": "Smartphone cases",
+     "qty": 1000
+    },
+    {
+     "description": "Bluetooth speakers",
+     "qty": 500
+    },
+    {
+     "description": "Laptop bags",
+     "qty": 300
+    },
+    {
+     "description": "LED desk lamps",
+     "qty": 200
+    },
+    {
+     "description": "USB-C cables",
+     "qty": 1200
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "qty": 200
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1950189441",
+   "invoice_no": "TL-2026-2848",
+   "awb_no": "771-4744 2716",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Qafqaz Kargo MMC",
+   "items": [
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 1000
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 500
+    },
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 300
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 200
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 1200
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 200
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-2848",
+   "awb_no": "771-4744 2716",
+   "currency": "USD",
+   "gross_weight_kg": 1203.1,
+   "net_weight_kg": null,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "GAFGAZ CARGO LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

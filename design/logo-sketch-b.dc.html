@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<title>Concord loqo B</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 560px; height: 560px; box-sizing: border-box; background: #EEF2F9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px">
+<svg width="340" height="340" viewBox="0 0 220 220" role="img" aria-label="Concord loqosu, variant B">
+<path d="M 139.8 66.2 A 62 62 0 1 0 139.8 153.8" fill="none" stroke="{{accent}}" stroke-width="13" stroke-linecap="round" stroke-dasharray="0.1 19"></path>
+<polygon transform="translate(165 128.8) rotate(-45) scale(1.15)" fill="#1F45C9" points="32,0 20,-3 4,-4 -10,-26 -18,-26 -8,-4 -20,-4 -28,-14 -33,-14 -28,-3 -28,3 -33,14 -28,14 -20,4 -8,4 -18,26 -10,26 4,4 20,3"></polygon>
+</svg>
+<div style="display: flex; align-items: center; gap: 24px">
+<svg width="64" height="64" viewBox="0 0 220 220" aria-hidden="true">
+<path d="M 139.8 66.2 A 62 62 0 1 0 139.8 153.8" fill="none" stroke="{{accent}}" stroke-width="16" stroke-linecap="round" stroke-dasharray="0.1 24"></path>
+<polygon transform="translate(165 128.8) rotate(-45) scale(1.15)" fill="#1F45C9" points="32,0 20,-3 4,-4 -10,-26 -18,-26 -8,-4 -20,-4 -28,-14 -33,-14 -28,-3 -28,3 -33,14 -28,14 -20,4 -8,4 -18,26 -10,26 4,4 20,3"></polygon>
+</svg>
+<svg width="28" height="28" viewBox="0 0 220 220" aria-hidden="true">
+<path d="M 139.8 66.2 A 62 62 0 1 0 139.8 153.8" fill="none" stroke="{{accent}}" stroke-width="22" stroke-linecap="round" stroke-dasharray="0.1 30"></path>
+<polygon transform="translate(165 128.8) rotate(-45) scale(1.25)" fill="#1F45C9" points="32,0 20,-3 4,-4 -10,-26 -18,-26 -8,-4 -20,-4 -28,-14 -33,-14 -28,-3 -28,3 -33,14 -28,14 -20,4 -8,4 -18,26 -10,26 4,4 20,3"></polygon>
+</svg>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#4C8DF6","options":["#4C8DF6","#0E1B3D","#1F45C9"]},"$preview":{"width":560,"height":560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#4C8DF6' };
+  }
+}
+</script>
+</body>
+</html>

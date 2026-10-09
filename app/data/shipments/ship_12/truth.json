@@ -1,0 +1,153 @@
+{
+ "labels": [
+  {
+   "type": "tax_id_mismatch",
+   "doc": "packing_list"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1185055879",
+   "invoice_no": "TL-2026-9318",
+   "awb_no": "771-8408 1456",
+   "currency": "USD",
+   "gross_weight_kg": 539.1,
+   "net_weight_kg": 463.6,
+   "packages": 29,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Xəzər Texnika MMC",
+   "items": [
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 800,
+     "unit_price": 10.41,
+     "amount": 8328.0
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 1200,
+     "unit_price": 9.71,
+     "amount": 11652.0
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 300,
+     "unit_price": 13.07,
+     "amount": 3921.0
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 200,
+     "unit_price": 11.48,
+     "amount": 2296.0
+    }
+   ],
+   "total_amount": 26197.0
+  },
+  "packing_list": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1185055789",
+   "invoice_no": "TL-2026-9318",
+   "awb_no": "771-8408 1456",
+   "currency": "USD",
+   "gross_weight_kg": 539.1,
+   "net_weight_kg": 463.6,
+   "packages": 29,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Хазар Техника»",
+   "items": [
+    {
+     "description": "Power banks 10000mAh",
+     "qty": 800
+    },
+    {
+     "description": "LED desk lamps",
+     "qty": 1200
+    },
+    {
+     "description": "Wireless earphones",
+     "qty": 300
+    },
+    {
+     "description": "Bluetooth speakers",
+     "qty": 200
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1185055879",
+   "invoice_no": "TL-2026-9318",
+   "awb_no": "771-8408 1456",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 29,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Xəzər Texnika MMC",
+   "items": [
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 800
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 1200
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 300
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 200
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-9318",
+   "awb_no": "771-8408 1456",
+   "currency": "USD",
+   "gross_weight_kg": 539.1,
+   "net_weight_kg": null,
+   "packages": 29,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "KHAZAR TEKHNIKA LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

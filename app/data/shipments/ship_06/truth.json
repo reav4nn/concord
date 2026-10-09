@@ -1,0 +1,185 @@
+{
+ "labels": [
+  {
+   "type": "consignee_mismatch",
+   "doc": "packing_list"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Yiwu Lianfa Import & Export Co., Ltd.",
+   "consignee_tax_id": "1111172107",
+   "invoice_no": "TL-2026-6691",
+   "awb_no": "771-6966 8768",
+   "currency": "USD",
+   "gross_weight_kg": 1186.6,
+   "net_weight_kg": 1020.5,
+   "packages": 51,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Qafqaz Kargo MMC",
+   "items": [
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 1200,
+     "unit_price": 10.62,
+     "amount": 12744.0
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 800,
+     "unit_price": 10.0,
+     "amount": 8000.0
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 300,
+     "unit_price": 6.0,
+     "amount": 1800.0
+    },
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 400,
+     "unit_price": 1.71,
+     "amount": 684.0
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 800,
+     "unit_price": 8.68,
+     "amount": 6944.0
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 300,
+     "unit_price": 1.65,
+     "amount": 495.0
+    }
+   ],
+   "total_amount": 30667.0
+  },
+  "packing_list": {
+   "shipper_name": "Yiwu Lianfa Import & Export Co., Ltd.",
+   "consignee_tax_id": "1111172107",
+   "invoice_no": "TL-2026-6691",
+   "awb_no": "771-6966 8768",
+   "currency": "USD",
+   "gross_weight_kg": 1186.6,
+   "net_weight_kg": 1020.5,
+   "packages": 51,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Сахиль Санайе»",
+   "items": [
+    {
+     "description": "Bluetooth speakers",
+     "qty": 1200
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "qty": 800
+    },
+    {
+     "description": "Wireless earphones",
+     "qty": 300
+    },
+    {
+     "description": "Smartphone cases",
+     "qty": 400
+    },
+    {
+     "description": "LED desk lamps",
+     "qty": 800
+    },
+    {
+     "description": "USB-C cables",
+     "qty": 300
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Yiwu Lianfa Import & Export Co., Ltd.",
+   "consignee_tax_id": "1111172107",
+   "invoice_no": "TL-2026-6691",
+   "awb_no": "771-6966 8768",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 51,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Qafqaz Kargo MMC",
+   "items": [
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 1200
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 800
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 300
+    },
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 400
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 800
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 300
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Yiwu Lianfa Import & Export Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-6691",
+   "awb_no": "771-6966 8768",
+   "currency": "USD",
+   "gross_weight_kg": 1186.6,
+   "net_weight_kg": null,
+   "packages": 51,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "GAFGAZ CARGO LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

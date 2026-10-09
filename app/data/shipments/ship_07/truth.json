@@ -1,0 +1,137 @@
+{
+ "labels": [
+  {
+   "type": "hs_mismatch",
+   "doc": "certificate_of_origin"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1334848879",
+   "invoice_no": "TL-2026-9652",
+   "awb_no": "771-5883 2491",
+   "currency": "USD",
+   "gross_weight_kg": 1037.9,
+   "net_weight_kg": 892.6,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Qafqaz Kargo MMC",
+   "items": [
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 600,
+     "unit_price": 1.61,
+     "amount": 966.0
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 400,
+     "unit_price": 10.13,
+     "amount": 4052.0
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 500,
+     "unit_price": 1.74,
+     "amount": 870.0
+    }
+   ],
+   "total_amount": 5888.0
+  },
+  "packing_list": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1334848879",
+   "invoice_no": "TL-2026-9652",
+   "awb_no": "771-5883 2491",
+   "currency": "USD",
+   "gross_weight_kg": 1037.9,
+   "net_weight_kg": 892.6,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Гафгаз Карго»",
+   "items": [
+    {
+     "description": "Smartphone cases",
+     "qty": 600
+    },
+    {
+     "description": "Wireless earphones",
+     "qty": 400
+    },
+    {
+     "description": "USB-C cables",
+     "qty": 500
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": "1334848879",
+   "invoice_no": "TL-2026-9652",
+   "awb_no": "771-5883 2491",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Qafqaz Kargo MMC",
+   "items": [
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 600
+    },
+    {
+     "description": "Wireless earphones",
+     "hs_code": "854442",
+     "qty": 400
+    },
+    {
+     "description": "USB-C cables",
+     "hs_code": "854442",
+     "qty": 500
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Xinjiang Tianlu Trading Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-9652",
+   "awb_no": "771-5883 2491",
+   "currency": "USD",
+   "gross_weight_kg": 1037.9,
+   "net_weight_kg": null,
+   "packages": 45,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "GAFGAZ CARGO LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}

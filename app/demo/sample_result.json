@@ -1,0 +1,251 @@
+{
+ "findings": [
+  {
+   "severity": "error",
+   "type": "weight_mismatch",
+   "field": "Brutto çəki",
+   "title": "Ümumi çəki uyğun gəlmir",
+   "summary": "Sənədlərdə brutto çəki fərqlidir (tolerans 0,5%).",
+   "rows": [
+    {
+     "doc": "Invoice",
+     "value": "1 117.5 kq",
+     "where": "invoice.pdf",
+     "bad": true
+    },
+    {
+     "doc": "Packing list",
+     "value": "1 074.1 kq",
+     "where": "packing_list.pdf",
+     "bad": false
+    },
+    {
+     "doc": "AWB",
+     "value": "1 074.1 kq",
+     "where": "awb.pdf",
+     "bad": false
+    }
+   ],
+   "checker": "Kod: rəqəm müqayisəsi",
+   "fix": "Bütün sənədlərdə çəkini 1074.1 kq etmək."
+  },
+  {
+   "severity": "error",
+   "type": "total_mismatch",
+   "field": "Məbləğ",
+   "title": "Invoice-un cəmi sətirlərlə tutmur",
+   "summary": "4 sətrin cəmi 17041.00 USD, TOTAL isə 17041.50 USD. Fərq 0.50 USD.",
+   "rows": [
+    {
+     "doc": "Invoice, sətirlər",
+     "value": "17041.00 USD",
+     "where": "invoice.pdf",
+     "bad": false
+    },
+    {
+     "doc": "Invoice, TOTAL",
+     "value": "17041.50 USD",
+     "where": "invoice.pdf",
+     "bad": true
+    }
+   ],
+   "checker": "Kod: hesab yoxlaması",
+   "fix": "TOTAL sətrini düzəltmək."
+  },
+  {
+   "severity": "ok",
+   "type": "consignee_variants",
+   "field": "Alıcı adı",
+   "title": "Alıcı adı 3 cür yazılıb, eyni şirkətdir",
+   "summary": "Latın, ingilis və kiril yazılışları eyni şirkətə aiddir: MMC, LLC və ООО eyni hüquqi formadır.",
+   "rows": [
+    {
+     "doc": "Invoice",
+     "value": "Bakı Ticarət Evi MMC",
+     "where": "invoice.pdf",
+     "bad": false
+    },
+    {
+     "doc": "Packing list",
+     "value": "ООО «Бакинский Торговый Дом»",
+     "where": "packing_list.pdf",
+     "bad": false
+    },
+    {
+     "doc": "Mənşə sertifikatı",
+     "value": "Bakı Ticarət Evi MMC",
+     "where": "certificate_of_origin.pdf",
+     "bad": false
+    },
+    {
+     "doc": "AWB",
+     "value": "BAKU TRADE HOUSE LLC",
+     "where": "awb.pdf",
+     "bad": false
+    }
+   ],
+   "checker": "AI: ad və translit uyğunlaşdırması",
+   "fix": "Düzəliş lazım deyil."
+  }
+ ],
+ "passed": [
+  "Yer sayı",
+  "Alıcı VÖEN",
+  "HS kodları"
+ ],
+ "counts": {
+  "error": 2,
+  "warn": 0,
+  "ok": 1
+ },
+ "docs": [
+  {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": "1601571670",
+   "invoice_no": "TL-2026-6924",
+   "awb_no": "771-5911 5070",
+   "currency": "USD",
+   "gross_weight_kg": 1117.5,
+   "net_weight_kg": 923.7,
+   "packages": 41,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Bakı Ticarət Evi MMC",
+   "items": [
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 800,
+     "unit_price": 6.78,
+     "amount": 5424.0
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 300,
+     "unit_price": 8.39,
+     "amount": 2517.0
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 500,
+     "unit_price": 13.96,
+     "amount": 6980.0
+    },
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 1000,
+     "unit_price": 2.12,
+     "amount": 2120.0
+    }
+   ],
+   "total_amount": 17041.5,
+   "_source_file": "invoice.pdf"
+  },
+  {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": "1601571670",
+   "invoice_no": "TL-2026-6924",
+   "awb_no": "771-5911 5070",
+   "currency": "USD",
+   "gross_weight_kg": 1074.1,
+   "net_weight_kg": 923.7,
+   "packages": 41,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Бакинский Торговый Дом»",
+   "items": [
+    {
+     "description": "Wireless earphones",
+     "qty": 800
+    },
+    {
+     "description": "LED desk lamps",
+     "qty": 300
+    },
+    {
+     "description": "Bluetooth speakers",
+     "qty": 500
+    },
+    {
+     "description": "Smartphone cases",
+     "qty": 1000
+    }
+   ],
+   "total_amount": null,
+   "_source_file": "packing_list.pdf"
+  },
+  {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": "1601571670",
+   "invoice_no": "TL-2026-6924",
+   "awb_no": "771-5911 5070",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 41,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Bakı Ticarət Evi MMC",
+   "items": [
+    {
+     "description": "Wireless earphones",
+     "hs_code": "851830",
+     "qty": 800
+    },
+    {
+     "description": "LED desk lamps",
+     "hs_code": "940520",
+     "qty": 300
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 500
+    },
+    {
+     "description": "Smartphone cases",
+     "hs_code": "392690",
+     "qty": 1000
+    }
+   ],
+   "total_amount": null,
+   "_source_file": "certificate_of_origin.pdf"
+  },
+  {
+   "shipper_name": "Guangzhou Meiya Industrial Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-6924",
+   "awb_no": "771-5911 5070",
+   "currency": "USD",
+   "gross_weight_kg": 1074.1,
+   "net_weight_kg": null,
+   "packages": 41,
+   "origin_country": "China",
+   "route": [
+    "Ürümçi (URC)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "BAKU TRADE HOUSE LLC",
+   "items": [],
+   "total_amount": null,
+   "_source_file": "awb.pdf"
+  }
+ ],
+ "_note": "Precomputed from ship_02 (labels: ['total_mismatch', 'weight_mismatch']). Consignee finding is the expected AI output."
+}

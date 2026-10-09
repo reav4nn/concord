@@ -1,0 +1,137 @@
+{
+ "labels": [
+  {
+   "type": "package_mismatch",
+   "doc": "awb"
+  }
+ ],
+ "docs": {
+  "invoice": {
+   "shipper_name": "Yiwu Lianfa Import & Export Co., Ltd.",
+   "consignee_tax_id": "1163282031",
+   "invoice_no": "TL-2026-3096",
+   "awb_no": "771-5125 9654",
+   "currency": "USD",
+   "gross_weight_kg": 378.5,
+   "net_weight_kg": 325.5,
+   "packages": 14,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "invoice",
+   "consignee_name": "Xəzər Texnika MMC",
+   "items": [
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 300,
+     "unit_price": 6.76,
+     "amount": 2028.0
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 200,
+     "unit_price": 9.01,
+     "amount": 1802.0
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 400,
+     "unit_price": 8.16,
+     "amount": 3264.0
+    }
+   ],
+   "total_amount": 7094.0
+  },
+  "packing_list": {
+   "shipper_name": "Yiwu Lianfa Import & Export Co., Ltd.",
+   "consignee_tax_id": "1163282031",
+   "invoice_no": "TL-2026-3096",
+   "awb_no": "771-5125 9654",
+   "currency": "USD",
+   "gross_weight_kg": 378.5,
+   "net_weight_kg": 325.5,
+   "packages": 14,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "packing_list",
+   "consignee_name": "ООО «Хазар Техника»",
+   "items": [
+    {
+     "description": "Laptop bags",
+     "qty": 300
+    },
+    {
+     "description": "Bluetooth speakers",
+     "qty": 200
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "qty": 400
+    }
+   ],
+   "total_amount": null
+  },
+  "certificate_of_origin": {
+   "shipper_name": "Yiwu Lianfa Import & Export Co., Ltd.",
+   "consignee_tax_id": "1163282031",
+   "invoice_no": "TL-2026-3096",
+   "awb_no": "771-5125 9654",
+   "currency": "USD",
+   "gross_weight_kg": null,
+   "net_weight_kg": null,
+   "packages": 14,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "certificate_of_origin",
+   "consignee_name": "Xəzər Texnika MMC",
+   "items": [
+    {
+     "description": "Laptop bags",
+     "hs_code": "420212",
+     "qty": 300
+    },
+    {
+     "description": "Bluetooth speakers",
+     "hs_code": "851822",
+     "qty": 200
+    },
+    {
+     "description": "Power banks 10000mAh",
+     "hs_code": "850760",
+     "qty": 400
+    }
+   ],
+   "total_amount": null
+  },
+  "awb": {
+   "shipper_name": "Yiwu Lianfa Import & Export Co., Ltd.",
+   "consignee_tax_id": null,
+   "invoice_no": "TL-2026-3096",
+   "awb_no": "771-5125 9654",
+   "currency": "USD",
+   "gross_weight_kg": 378.5,
+   "net_weight_kg": null,
+   "packages": 12,
+   "origin_country": "China",
+   "route": [
+    "Quançjou (CAN)",
+    "Bakı (GYD)"
+   ],
+   "doc_type": "awb",
+   "consignee_name": "KHAZAR TEKHNIKA LLC",
+   "items": [],
+   "total_amount": null
+  }
+ }
+}
