@@ -11,13 +11,14 @@ WEIGHT_TOL = 0.005   # 0.5 %
 MONEY_TOL = 0.01     # 1 cent
 
 
-def _f(sev, etype, field, title, summary, rows, checker, fix):
+def _f(sev, etype, field, title, summary, rows, checker, fix, params=None):
+    # az texts are kept for logs/back-compat; the UI renders type+params via concord.i18n
     return dict(severity=sev, type=etype, field=field, title=title, summary=summary,
-                rows=rows, checker=checker, fix=fix)
+                rows=rows, checker=checker, fix=fix, params=params or {})
 
 
 def _row(doc, value, bad=False):
-    return {"doc": DOC_LABELS.get(doc["doc_type"], doc["doc_type"]), "value": value,
+    return {"doc": DOC_LABELS.get(doc["doc_type"], doc["doc_type"]), "doc_key": doc["doc_type"], "value": value,
             "where": doc.get("_source_file", ""), "bad": bad}
 
 
@@ -48,26 +49,27 @@ def rule_checks(docs: list[dict]) -> tuple[list[dict], list[str]]:
     if r:
         findings.append(_f("error", "weight_mismatch", "Brutto çəki", "Ümumi çəki uyğun gəlmir",
                            "Sənədlərdə brutto çəki fərqlidir (tolerans 0,5%).", r[1],
-                           "Kod: rəqəm müqayisəsi", f"Bütün sənədlərdə çəkini {r[0]} kq etmək."))
+                           "Kod: rəqəm müqayisəsi", f"Bütün sənədlərdə çəkini {r[0]} kq etmək.",
+                           {"value": r[0]}))
     else:
-        passed.append("Brutto çəki")
+        passed.append("weight")
 
     r = _majority_mismatch(docs, "packages", str, lambda a, b: a == b)
     if r:
         findings.append(_f("error", "package_mismatch", "Yer sayı", "Yer sayı uyğun gəlmir",
                            "Sənədlərdə qutu/yer sayı fərqlidir.", r[1], "Kod: dəqiq uyğunluq",
-                           f"Yer sayını {r[0]} kimi düzəltmək."))
+                           f"Yer sayını {r[0]} kimi düzəltmək.", {"value": r[0]}))
     else:
-        passed.append("Yer sayı")
+        passed.append("packages")
 
     r = _majority_mismatch(docs, "consignee_tax_id", str,
                            lambda a, b: "".join(filter(str.isdigit, a)) == "".join(filter(str.isdigit, b)))
     if r:
         findings.append(_f("error", "tax_id_mismatch", "Alıcı VÖEN", "Alıcının VÖEN-i fərqlidir",
                            "VÖEN bütün sənədlərdə eyni olmalıdır.", r[1], "Kod: dəqiq uyğunluq",
-                           f"Səhv sənədi {r[0]} VÖEN-i ilə yeniləmək."))
+                           f"Səhv sənədi {r[0]} VÖEN-i ilə yeniləmək.", {"value": r[0]}))
     else:
-        passed.append("Alıcı VÖEN")
+        passed.append("tax_id")
 
     for d in docs:
         if d["doc_type"] != "invoice" or d.get("total_amount") is None:
@@ -81,11 +83,13 @@ def rule_checks(docs: list[dict]) -> tuple[list[dict], list[str]]:
             findings.append(_f("error", "total_mismatch", "Məbləğ", "Invoice-un cəmi sətirlərlə tutmur",
                                f"{len(amounts)} sətrin cəmi {s:.2f} {cur}, TOTAL isə {d['total_amount']:.2f} {cur}. "
                                f"Fərq {abs(s - d['total_amount']):.2f} {cur}.",
-                               [{"doc": "Invoice, sətirlər", "value": f"{s:.2f} {cur}", "where": d.get("_source_file", ""), "bad": False},
-                                {"doc": "Invoice, TOTAL", "value": f"{d['total_amount']:.2f} {cur}", "where": d.get("_source_file", ""), "bad": True}],
-                               "Kod: hesab yoxlaması", "TOTAL sətrini düzəltmək."))
+                               [{"doc": "Invoice, sətirlər", "doc_key": "invoice_lines", "value": f"{s:.2f} {cur}", "where": d.get("_source_file", ""), "bad": False},
+                                {"doc": "Invoice, TOTAL", "doc_key": "invoice_total", "value": f"{d['total_amount']:.2f} {cur}", "where": d.get("_source_file", ""), "bad": True}],
+                               "Kod: hesab yoxlaması", "TOTAL sətrini düzəltmək.",
+                               {"n": len(amounts), "sum": f"{s:.2f}", "total": f"{d['total_amount']:.2f}",
+                                "diff": f"{abs(s - d['total_amount']):.2f}", "cur": cur}))
         else:
-            passed.append("Invoice cəmi")
+            passed.append("total")
 
     inv = next((d for d in docs if d["doc_type"] == "invoice"), None)
     coo = next((d for d in docs if d["doc_type"] == "certificate_of_origin"), None)
@@ -100,7 +104,7 @@ def rule_checks(docs: list[dict]) -> tuple[list[dict], list[str]]:
                                 _row(coo, ", ".join(sorted(coo_hs)), bad=bool(coo_hs - inv_hs))],
                                "Kod: kod müqayisəsi", "Brokerlə düzgün kodu təsdiqləyib bir sənədi yeniləmək."))
         else:
-            passed.append("HS kodları")
+            passed.append("hs")
     return findings, passed
 
 
@@ -109,7 +113,8 @@ as printed on each document. Names may be written in Azerbaijani Latin, English,
 with legal-form variants (MMC = LLC = ООО). Decide whether they all refer to the SAME company.
 Transliteration and legal-form differences are NOT errors. A different company name IS an error.
 
-Return JSON: {"same_company": true|false, "confidence": 0-1, "reason": "<one short sentence in Azerbaijani>",
+Return JSON: {"same_company": true|false, "confidence": 0-1, "reason_az": "<one short sentence in Azerbaijani>",
+"reason_en": "<the same sentence in English>", "reason_ru": "<the same sentence in Russian>",
 "odd_one_out": "<doc label or null>"}
 
 Names:
@@ -124,18 +129,22 @@ def semantic_checks(docs: list[dict], client=None) -> tuple[list[dict], list[str
     listing = "\n".join(f"- {DOC_LABELS[d['doc_type']]}: {n}" for d, n in names)
     res = ask_json("You are a careful customs document checker. Answer only with JSON.",
                    SEMANTIC_PROMPT + listing, max_tokens=400)
+    res.setdefault("reason", res.get("reason_az") or res.get("reason_en", ""))
+    reason = {k: res.get(f"reason_{k}") or res["reason"] for k in ("az", "en", "ru")}
     rows = [_row(d, n, bad=(not res["same_company"] and DOC_LABELS[d["doc_type"]] == res.get("odd_one_out"))) for d, n in names]
     if not res["same_company"]:
         return [_f("error", "consignee_mismatch", "Alıcı adı", "Alıcı fərqli şirkət kimi görünür",
-                   res["reason"], rows, "AI: ad və translit uyğunlaşdırması", "Düzgün alıcı adı ilə sənədi yeniləmək.")], []
+                   res["reason"], rows, "AI: ad və translit uyğunlaşdırması", "Düzgün alıcı adı ilə sənədi yeniləmək.",
+                   {"reason": reason})], []
     if res.get("confidence", 1) < 0.7:
         return [_f("warn", "consignee_unsure", "Alıcı adı", "Alıcı adı yoxlanmalıdır", res["reason"], rows,
-                   "AI: ad və translit uyğunlaşdırması", "Brokerin təsdiqi lazımdır.")], []
+                   "AI: ad və translit uyğunlaşdırması", "Brokerin təsdiqi lazımdır.", {"reason": reason})], []
     distinct = len({n.strip().lower() for _, n in names})
     if distinct > 1:
         return [_f("ok", "consignee_variants", "Alıcı adı", f"Alıcı adı {distinct} cür yazılıb, eyni şirkətdir",
-                   res["reason"], rows, "AI: ad və translit uyğunlaşdırması", "Düzəliş lazım deyil.")], []
-    return [], ["Alıcı adı"]
+                   res["reason"], rows, "AI: ad və translit uyğunlaşdırması", "Düzəliş lazım deyil.",
+                   {"reason": reason, "n": distinct})], []
+    return [], ["consignee"]
 
 
 def check(docs: list[dict], use_ai: bool = True) -> dict:

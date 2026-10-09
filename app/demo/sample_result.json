@@ -9,25 +9,31 @@
    "rows": [
     {
      "doc": "Invoice",
+     "doc_key": "invoice",
      "value": "1 117.5 kq",
      "where": "invoice.pdf",
      "bad": true
     },
     {
      "doc": "Packing list",
+     "doc_key": "packing_list",
      "value": "1 074.1 kq",
      "where": "packing_list.pdf",
      "bad": false
     },
     {
      "doc": "AWB",
+     "doc_key": "awb",
      "value": "1 074.1 kq",
      "where": "awb.pdf",
      "bad": false
     }
    ],
    "checker": "Kod: rəqəm müqayisəsi",
-   "fix": "Bütün sənədlərdə çəkini 1074.1 kq etmək."
+   "fix": "Bütün sənədlərdə çəkini 1074.1 kq etmək.",
+   "params": {
+    "value": 1074.1
+   }
   },
   {
    "severity": "error",
@@ -38,19 +44,28 @@
    "rows": [
     {
      "doc": "Invoice, sətirlər",
+     "doc_key": "invoice_lines",
      "value": "17041.00 USD",
      "where": "invoice.pdf",
      "bad": false
     },
     {
      "doc": "Invoice, TOTAL",
+     "doc_key": "invoice_total",
      "value": "17041.50 USD",
      "where": "invoice.pdf",
      "bad": true
     }
    ],
    "checker": "Kod: hesab yoxlaması",
-   "fix": "TOTAL sətrini düzəltmək."
+   "fix": "TOTAL sətrini düzəltmək.",
+   "params": {
+    "n": 4,
+    "sum": "17041.00",
+    "total": "17041.50",
+    "diff": "0.50",
+    "cur": "USD"
+   }
   },
   {
    "severity": "ok",
@@ -61,37 +76,49 @@
    "rows": [
     {
      "doc": "Invoice",
+     "doc_key": "invoice",
      "value": "Bakı Ticarət Evi MMC",
      "where": "invoice.pdf",
      "bad": false
     },
     {
      "doc": "Packing list",
+     "doc_key": "packing_list",
      "value": "ООО «Бакинский Торговый Дом»",
      "where": "packing_list.pdf",
      "bad": false
     },
     {
      "doc": "Mənşə sertifikatı",
+     "doc_key": "certificate_of_origin",
      "value": "Bakı Ticarət Evi MMC",
      "where": "certificate_of_origin.pdf",
      "bad": false
     },
     {
      "doc": "AWB",
+     "doc_key": "awb",
      "value": "BAKU TRADE HOUSE LLC",
      "where": "awb.pdf",
      "bad": false
     }
    ],
    "checker": "AI: ad və translit uyğunlaşdırması",
-   "fix": "Düzəliş lazım deyil."
+   "fix": "Düzəliş lazım deyil.",
+   "params": {
+    "reason": {
+     "az": "Latın, ingilis və kiril yazılışları eyni şirkətə aiddir: MMC, LLC və ООО eyni hüquqi formadır.",
+     "en": "The Latin, English and Cyrillic spellings refer to one company: MMC, LLC and ООО are the same legal form.",
+     "ru": "Латинское, английское и кириллическое написания относятся к одной компании: MMC, LLC и ООО — одна правовая форма."
+    },
+    "n": 3
+   }
   }
  ],
  "passed": [
-  "Yer sayı",
-  "Alıcı VÖEN",
-  "HS kodları"
+  "packages",
+  "tax_id",
+  "hs"
  ],
  "counts": {
   "error": 2,
@@ -247,5 +274,5 @@
    "_source_file": "awb.pdf"
   }
  ],
- "_note": "Precomputed from ship_02 (labels: ['total_mismatch', 'weight_mismatch']). Consignee finding is the expected AI output."
+ "_note": "Precomputed from data/shipments/ship_02. The consignee finding is the expected AI output."
 }

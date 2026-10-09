@@ -4,6 +4,7 @@ from pathlib import Path
 import streamlit as st
 from concord.schema import DOC_TYPES, DOC_LABELS
 from concord.letter import build_letter
+from concord.i18n import LANGS, SEV, CHECK, t, doc_label, finding_text
 
 ROOT = Path(__file__).parent
 st.set_page_config(page_title="Concord", page_icon=str(ROOT / "assets" / "favicon-32.png"), layout="wide")
@@ -45,82 +46,105 @@ st.markdown(CSS, unsafe_allow_html=True)
 _mark = (ROOT / "assets" / "concord-lockup-dark.svg").read_text()
 _mark = re.sub(r'<rect[^>]*/>', '', _mark, count=1)          # drop the navy backdrop rect
 _mark = re.sub(r'\s(width|height)="[^"]*"', '', _mark.split('>', 1)[0]) + '>' + _mark.split('>', 1)[1]
-st.markdown(f'<div class="cc-head">{_mark}<span>Yük sənədlərinin avtomatik tutuşdurulması</span></div>',
-            unsafe_allow_html=True)
+qp = st.query_params.get("lang", "az")
+if "lang" not in st.session_state:
+    st.session_state.lang = qp if qp in LANGS else "az"
+head_l, head_r = st.columns([10, 2], vertical_alignment="center")
+with head_r:
+    choice = st.segmented_control("Language", list(LANGS), format_func=lambda k: LANGS[k],
+                                  default=st.session_state.lang, key="lang_pick", label_visibility="collapsed")
+    if choice and choice != st.session_state.lang:
+        st.session_state.lang = choice
+        st.query_params["lang"] = choice
+        st.rerun()
+L = st.session_state.lang
+with head_l:
+    st.markdown(f'<div class="cc-head">{_mark}<span>{t("tagline", L)}</span></div>', unsafe_allow_html=True)
 
-LABEL = {"error": "Xəta", "warn": "Yoxlanmalı", "ok": "Uyğun"}
+
+def unit_en(v):
+    return v.replace(" kq", " kg")
+
+
+def unit(v):
+    return v.replace(" kq", {"az": " kq", "en": " kg", "ru": " кг"}[L]) if isinstance(v, str) else v
 
 
 def run_pipeline(files: dict):
     from concord.extract import extract
     from concord.compare import check
     docs = []
-    with st.status("Sənədlər oxunur...", expanded=True) as s:
-        for t, up in files.items():
-            st.write(f"{DOC_LABELS[t]} oxunur")
+    with st.status(t("reading", L), expanded=True) as s:
+        for k, up in files.items():
+            st.write(t("reading_one", L, doc=doc_label(k, L)))
             with tempfile.NamedTemporaryFile(suffix=Path(up.name).suffix, delete=False) as f:
                 f.write(up.getvalue()); p = Path(f.name)
-            d = extract(p, t); d["_source_file"] = up.name; docs.append(d)
-        s.update(label="Tutuşdurulur...")
+            d = extract(p, k); d["_source_file"] = up.name; docs.append(d)
+        s.update(label=t("comparing", L))
         res = check(docs, use_ai=True)
-        s.update(label="Hazırdır", state="complete", expanded=False)
+        s.update(label=t("done", L), state="complete", expanded=False)
     res["docs"] = docs
     return res
 
 
-tab_up, tab_res = st.tabs(["Yüklə", "Nəticə"])
+tab_up, tab_res = st.tabs([t("tab_upload", L), t("tab_result", L)])
 with tab_up:
-    st.subheader("Yükün sənədlərini əlavə edin")
-    st.caption("PDF, skan və ya telefon şəkli. Ən azı 2 sənəd lazımdır.")
+    st.subheader(t("upload_title", L))
+    st.caption(t("upload_hint", L))
     cols = st.columns(4)
     files = {}
-    for c, t in zip(cols, DOC_TYPES):
+    for c, k in zip(cols, DOC_TYPES):
         with c:
-            up = st.file_uploader(DOC_LABELS[t], type=["pdf", "png", "jpg", "jpeg"], key=t)
-            if up: files[t] = up
+            up = st.file_uploader(doc_label(k, L), type=["pdf", "png", "jpg", "jpeg"], key=k)
+            if up: files[k] = up
     b1, b2, _ = st.columns([1, 1.6, 9], gap="small")
-    if b1.button("Yoxla", type="primary", disabled=len(files) < 2):
+    if b1.button(t("check", L), type="primary", disabled=len(files) < 2):
         try:
             st.session_state.result = run_pipeline(files)
-            st.success("Hazırdır. 'Nəticə' tab-ına keçin.")
+            st.success(t("done_go", L))
         except Exception as e:
-            st.error(f"Yoxlama alınmadı: {e}. Sənədi yenidən yükləyin və ya nümunə yükü açın.")
-    if b2.button("Nümunə yükü aç"):
+            st.error(t("failed", L, e=e))
+    if b2.button(t("sample", L)):
         st.session_state.result = json.loads((ROOT / "demo" / "sample_result.json").read_text())
-        st.success("Nümunə yük yükləndi. 'Nəticə' tab-ına keçin.")
+        st.success(t("sample_go", L))
 
 with tab_res:
     res = st.session_state.get("result")
     if not res:
-        st.info("Hələ nəticə yoxdur. Sənəd yükləyin və ya nümunə yükü açın.")
+        st.info(t("empty", L))
     else:
         c = res["counts"]
         m1, m2, m3, _ = st.columns([1, 1, 1, 4])
-        m1.markdown(f'<div class="cc-count" style="color:#9A3412">{c["error"]}</div><div class="cc-meta">xəta</div>', unsafe_allow_html=True)
-        m2.markdown(f'<div class="cc-count" style="color:#7A5200">{c["warn"]}</div><div class="cc-meta">yoxlanmalı</div>', unsafe_allow_html=True)
-        m3.markdown(f'<div class="cc-count" style="color:#1E6B4A">{len(res["passed"]) + c["ok"]}</div><div class="cc-meta">uyğun</div>', unsafe_allow_html=True)
+        m1.markdown(f'<div class="cc-count" style="color:#9A3412">{c["error"]}</div><div class="cc-meta">{t("n_error", L)}</div>', unsafe_allow_html=True)
+        m2.markdown(f'<div class="cc-count" style="color:#7A5200">{c["warn"]}</div><div class="cc-meta">{t("n_warn", L)}</div>', unsafe_allow_html=True)
+        m3.markdown(f'<div class="cc-count" style="color:#1E6B4A">{len(res["passed"]) + c["ok"]}</div><div class="cc-meta">{t("n_ok", L)}</div>', unsafe_allow_html=True)
         st.write("")
-        f_tab, l_tab, d_tab = st.tabs(["Uyğunsuzluqlar", "Düzəliş məktubu", "Çıxarılan data"])
+        f_tab, l_tab, d_tab = st.tabs([t("tab_findings", L), t("tab_letter", L), t("tab_data", L)])
         with f_tab:
             for f in res["findings"]:
-                with st.expander(f"{LABEL[f['severity']]} · {f['title']}", expanded=f["severity"] == "error"):
-                    st.markdown(f'<span class="cc-badge {f["severity"]}">{LABEL[f["severity"]]}</span> '
-                                f'<span class="cc-meta">{f["field"]}</span>', unsafe_allow_html=True)
-                    st.write(f["summary"])
-                    rows = "".join(f'<tr><td>{r["doc"]}</td><td><span class="cc-val {"bad" if r.get("bad") else ""}">{r["value"]}</span></td>'
+                ft = finding_text(f, L)
+                sev = SEV[f["severity"]][L]
+                with st.expander(f"{sev} · {ft['title']}", expanded=f["severity"] == "error"):
+                    st.markdown(f'<span class="cc-badge {f["severity"]}">{sev}</span> '
+                                f'<span class="cc-meta">{ft["field"]}</span>', unsafe_allow_html=True)
+                    st.write(ft["summary"])
+                    rows = "".join(f'<tr><td>{doc_label(r["doc_key"], L) if r.get("doc_key") else r["doc"]}</td>'
+                                   f'<td><span class="cc-val {"bad" if r.get("bad") else ""}">{unit(r["value"])}</span></td>'
                                    f'<td class="cc-meta">{r["where"]}</td></tr>' for r in f["rows"])
-                    st.markdown(f'<table class="cc-table"><tr><th>Sənəd</th><th>Dəyər</th><th>Harada</th></tr>{rows}</table>', unsafe_allow_html=True)
+                    st.markdown(f'<table class="cc-table"><tr><th>{t("col_doc", L)}</th><th>{t("col_value", L)}</th>'
+                                f'<th>{t("col_where", L)}</th></tr>{rows}</table>', unsafe_allow_html=True)
                     a, b = st.columns(2)
-                    a.markdown(f'<div class="cc-meta">Kim aşkarladı</div><b>{f["checker"]}</b>', unsafe_allow_html=True)
-                    b.markdown(f'<div class="cc-meta">Təklif olunan düzəliş</div><b>{f["fix"]}</b>', unsafe_allow_html=True)
+                    a.markdown(f'<div class="cc-meta">{t("who", L)}</div><b>{ft["checker"]}</b>', unsafe_allow_html=True)
+                    b.markdown(f'<div class="cc-meta">{t("fix", L)}</div><b>{unit(ft["fix"])}</b>', unsafe_allow_html=True)
             if res["passed"]:
-                st.markdown("**Uyğun gələn yoxlamalar:** " + " ".join(f'<span class="cc-badge ok">{p}</span>' for p in res["passed"]), unsafe_allow_html=True)
+                st.markdown(f"**{t('passed', L)}** " + " ".join(
+                    f'<span class="cc-badge ok">{CHECK.get(p, {}).get(L, p)}</span>' for p in res["passed"]), unsafe_allow_html=True)
         with l_tab:
             docs = res.get("docs", [])
             awb = next((d.get("awb_no") for d in docs if d.get("awb_no")), "[AWB]")
             shipper = next((d.get("shipper_name") for d in docs if d.get("shipper_name")), "[SHIPPER]")
             letter = build_letter(res["findings"], awb, shipper)
-            st.code(letter or "Xəta yoxdur, məktub lazım deyil.", language=None)
-            st.caption("Yalnız xəta statuslu bəndlər daxil edilir. Yoxlanmalı bəndlər brokerin təsdiqini gözləyir.")
+            st.code(unit_en(letter) if letter else t("no_letter", L), language=None)
+            st.caption(t("letter_note", L))
         with d_tab:
             st.json(res.get("docs", []))
