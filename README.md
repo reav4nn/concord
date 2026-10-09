@@ -80,7 +80,7 @@ python check_setup.py                # verifies key, model, and runs one real sh
 streamlit run app.py
 ```
 
-No API key? Open the app and press **Nümunə yükü aç** to load a precomputed result.
+**Live demo:** https://projectzh-concord.streamlit.app/?lang=en. No API key needed for **Open sample**, which loads a precomputed result. Language switch (AZ / EN / RU) at the bottom.
 
 To use Anthropic instead: `CONCORD_PROVIDER=anthropic`, `ANTHROPIC_API_KEY`, `CONCORD_MODEL=<claude model id>`.
 
