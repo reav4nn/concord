@@ -40,8 +40,9 @@ h2, h3 { color:#0E1B3D !important; letter-spacing:-0.01em; }
 .cc-val { font-family:'IBM Plex Mono',monospace; padding:2px 6px; border-radius:4px; }
 .cc-val.bad { background:#FBE3D2; color:#9A3412; }
 .cc-meta { color:#4A5670; font-size:13px; }
-.cc-foot { margin-top:48px; border-top:1px solid #D5DCE8; }
-[data-testid="stButtonGroup"] { justify-content:flex-end; }
+[data-testid="stHorizontalBlock"]:has([data-testid="stButtonGroup"]) {
+  margin-top:56px; padding-top:16px; padding-bottom:24px; border-top:1px solid #D5DCE8; }
+[data-testid="stColumn"]:has([data-testid="stButtonGroup"]) [data-testid="stVerticalBlock"] { align-items:flex-end; }
 [data-testid="stButtonGroup"] button { min-height:26px; height:26px; padding:0 9px; font-size:12px;
   background:transparent; border-color:#D5DCE8; color:#4A5670; }
 [data-testid="stButtonGroup"] button[aria-checked="true"], [data-testid="stButtonGroup"] button[kind*="Active"] {
@@ -144,7 +145,6 @@ with tab_res:
         with d_tab:
             st.json(res.get("docs", []))
 
-st.markdown('<div class="cc-foot"></div>', unsafe_allow_html=True)
 _, foot = st.columns([12, 2])
 with foot:
     st.segmented_control("Language", list(LANGS), format_func=lambda k: LANGS[k], default=L,
